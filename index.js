@@ -1,8 +1,9 @@
-const readline = require('readline');
 const fs = require('fs');
+const readline = require('readline');
+const { Triangle, Circle, Square, validateShape } = require('./library/shapes');
 
 // User input prompt function
-function promptUser(question) {
+async function promptUser(question) {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -18,40 +19,47 @@ function promptUser(question) {
 
 // SVG code generator
 function generateSVG(text, textColor, shape, shapeColor) {
-  const shapeFilePath = `./shapes/${shape}.svg`;
+  let shapeInstance;
 
-  // read the shape file
-  const shapeCode = fs.readFileSync(shapeFilePath, 'utf8');
+  switch (shape.toLowerCase()) {
+    case 'circle':
+      shapeInstance = new Circle();
+      break;
+    case 'triangle':
+      shapeInstance = new Triangle();
+      break;
+    case 'square':
+      shapeInstance = new Square();
+      break;
+    default:
+      throw new Error('Invalid shape. Please enter one of the following: circle, triangle, or square.');
+  }
 
-  // variable for user input choices
-  const svgCode = shapeCode
-    .replace('SVG', text)
-    .replace('${textColor}', textColor)
-    .replace('${shapeColor}', shapeColor);
+  shapeInstance.setColor(shapeColor);
+
+  let svgCode = shapeInstance.render();
+
+  // SVG replace for inputs from prompts
+  svgCode = svgCode.replace(/<text\b[^>]*>(.*?)<\/text>/s, `<text x="150" y="110" font-size="40" text-anchor="middle" fill="${textColor}">${text}</text>`);
+  svgCode = svgCode.replace(/fill="(.*?)"/s, `fill="${shapeColor}"`);
 
   return svgCode;
 }
 
-// save function as .svg file
+// Save function as .svg file
 function saveSVGToFile(svgCode) {
   fs.writeFileSync('logo.svg', svgCode);
   console.log('Generated logo.svg');
 }
 
-// shadpe function validation
-function validateShape(shape) {
-  const validShapes = ['circle', 'triangle', 'square'];
-  return validShapes.includes(shape.toLowerCase());
-}
-
-// app run
+// App run
 async function run() {
   try {
     const text = await promptUser('Enter the text (up to three characters): ');
     const textColor = await promptUser('Enter the text color: ');
     let shape = await promptUser('Enter the shape (circle, triangle, or square): ');
 
-    // shadpw validation message
+    // Shape validation message
     while (!validateShape(shape)) {
       console.log('Invalid shape. Please enter one of the following: circle, triangle, or square.');
       shape = await promptUser('Enter the shape (circle, triangle, or square): ');
