@@ -22,9 +22,12 @@ To run the Logo Generator application, execute the following command in your ter
 #### The application will prompt you for the following inputs:
 
 Text: Enter the text for your logo (up to three characters).
-Text Color: Enter the color for the text. -- You can use color keywords (e.g., "red") or hexadecimal color codes (e.g., "#FF0000").
-Shape: choose from: circle, triangle, or square. (It will provide invalid option if input does not match these choices)
-Shape Color: Enter the color for the shape. -- You can use color keywords or hexadecimal color codes.
+
+Text Color: Enter a color.  You can use a color keyword ("red", "gray", etc.) or hexadecimal color codes ("#FF0000" for example).
+
+Shape: choose from: circle, triangle, or square.
+
+Shape Color: Enter the color for the shape. Again, either a color keyword or hexadecimal code will would work.
 
 
 Once you have provided all the required inputs, the application will generate an SVG file named logo.svg. You can open this file in a web browser to view your logo.
@@ -34,6 +37,8 @@ Once you have provided all the required inputs, the application will generate an
 In the installation we mentioned typing `npm install jest` into the terminal
 
 Using Jest allows us to make sure that our program is able to function as expected, and allows us to encounter/debug code as needed.
+
+The command to run the test is `npm test`. This is something you can view in our package.json in the scripts section for our test command.
 
 With proper application of inquirer, installed with `npm install inquirer@7.3.3`, questions can be created in order to ensure proper functionality. The inquirer prompts allow user returned responses to have verification during the time that application is used.
 
@@ -49,7 +54,3 @@ This project is licensed under the MIT License.
 
 Name: Philip Kubisz
 Email: philip.kubisz@gmail.com
-
-
-Name: [Your Name]
-Email: [Your Email]
