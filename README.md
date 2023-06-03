@@ -41,7 +41,7 @@ With proper application of inquirer, installed with `npm install inquirer@7.3.3`
 ## Walkthrough Video
 Demonstration of the Logo Generator application and its functionality
 
-[Video Demonstration Link](https://watch.screencastify.com/v/5BK2NkDiDTd5DdDTkCeB)
+[Video Demonstration Link](https://drive.google.com/file/d/1Uv05owI-KW6zCuVCPNNX6exWeyj7wEKm/view)
 
 ## License
 This project is licensed under the MIT License.
