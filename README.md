@@ -12,7 +12,7 @@ Install the dependencies by running the following command:
 
 `npm install jest` is used in order to install Jest package
 
-`npm install inquirer  ` is used to install the inquirer package
+`npm install inquirer@7.3.3` is used to install the inquirer package
 
 ## Usage
 To run the Logo Generator application, execute the following command in your terminal:
@@ -35,7 +35,7 @@ In the installation we mentioned typing `npm install jest` into the terminal
 
 Using Jest allows us to make sure that our program is able to function as expected, and allows us to encounter/debug code as needed.
 
-With proper application of inquirer, installed with `npm install inquirer`, questions can be created in order to ensure proper functionality.
+With proper application of inquirer, installed with `npm install inquirer@7.3.3`, questions can be created in order to ensure proper functionality. The inquirer prompts allow user returned responses to have verification during the time that application is used.
 
 
 ## Walkthrough Video

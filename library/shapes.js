@@ -12,6 +12,7 @@ class Shape {
     }
   }
   
+  // Shape class templates
   class Triangle extends Shape {
     render() {
       const triangleWidth = 300;
@@ -31,7 +32,6 @@ class Shape {
     }
   }
 
-  // Shape class template
   class Circle extends Shape {
     render() {
       return `

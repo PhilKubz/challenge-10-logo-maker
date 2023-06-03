@@ -1,24 +1,28 @@
 const inquirer = require('inquirer');
 
-// Prompts here
-const prompts = [
-  //questions here
-];
+const runInquirerPrompts = () => {
+  const prompts = [
+    {
+      name: 'text',
+      message: 'Enter the text (up to three characters):',
+    },
+    {
+      name: 'textColor',
+      message: 'Enter the text color:',
+    },
+    {
+      name: 'shape',
+      message: 'Enter the shape (circle, triangle, or square):',
+    },
+    {
+      name: 'shapeColor',
+      message: 'Enter the shape color:',
+    },
+  ];
 
-// Perform check for answers
-function processAnswers(answers) {
-  // logic based on answers
-}
+  return inquirer.prompt(prompts);
+};
 
-// Export the function that triggers the Inquirer prompts and logic
-module.exports = function runInquirerPrompts() {
-  return inquirer.prompt(prompts)
-    .then(processAnswers)
-    .catch((error) => {
-      if (error.isTtyError) {
-        console.error('Prompt couldn\'t be rendered in the current environment');
-      } else {
-        console.error('Something else went wrong:', error);
-      }
-    });
+module.exports = {
+  runInquirerPrompts,
 };
